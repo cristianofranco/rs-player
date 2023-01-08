@@ -11,3 +11,7 @@ Ao abrir o aplicativo, você verá três players de música de tamanhos diferent
 ## Músicas
 
 O player desenvolvido possui a minha música clássica preferida, Moonlight Sonata, tocada por Paul Pitman. Os arquivos .mp3 foram obtidos no site Musopen (musopen.org) e as músicas estão disponíveis sobre a licença PD (Domínio Público), o que significa que elas podem ser utilizadas e distribuídas livremente, sem a necessidade de pedir permissão ou creditar o autor original.
+
+## Imagem
+
+Imagem por Felicia Buitenwerf, obtida no site Unsplash (unsplash.com) sob licença Unsplash.

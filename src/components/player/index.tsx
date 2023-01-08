@@ -34,7 +34,7 @@ export default function Player({ size, song }: PlayerProps) {
 
   function adjustVolume() {
     if (playerRef.current) {
-      playerRef.current.volume = 0.2;
+      playerRef.current.volume = 0.75;
     }
   }
 
@@ -74,10 +74,10 @@ export default function Player({ size, song }: PlayerProps) {
           height={handleSizes().imageCoverSize}
         />
         <Flex flexDirection="column">
-          <Text fontSize="2xl" fontWeight="bold" color="whiteAlpha.900">
+          <Text fontSize="xl" fontWeight="bold" color="whiteAlpha.900">
             {song?.name}
           </Text>
-          <Text fontSize="xl" fontWeight="semibold" color="artist">
+          <Text fontSize="md" fontWeight="semibold" color="artist">
             {song?.artist}
           </Text>
         </Flex>

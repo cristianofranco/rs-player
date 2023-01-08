@@ -5,27 +5,27 @@ export default function Home() {
   const songs = [
     {
       id: 1,
-      name: "????",
-      artist: "EDEN",
-      coverUrl: "/images/no-future.jpg",
-      audio: "songs/question.mp3",
-      duration: 179,
+      name: "Adagio Sostenuto",
+      artist: "Paul Pitman",
+      coverUrl: "/images/cover.jpg",
+      audio: "songs/movementI.mp3",
+      duration: 335,
     },
     {
       id: 2,
-      name: "Modern Warfare",
-      artist: "EDEN",
-      coverUrl: "/images/icymi.jpg",
-      audio: "songs/modern.mp3",
-      duration: 202
+      name: "Allegreto",
+      artist: "Paul Pitman",
+      coverUrl: "/images/cover.jpg",
+      audio: "songs/movementII.mp3",
+      duration: 131
     },
     {
       id: 3,
-      name: "Untitled",
-      artist: "EDEN",
-      coverUrl: "/images/no-future.jpg",
-      audio: "songs/untitled.mp3",
-      duration: 216,
+      name: "Presto",
+      artist: "Paul Pitman",
+      coverUrl: "/images/cover.jpg",
+      audio: "songs/movementIII.mp3",
+      duration: 493,
     },
   ];
 
