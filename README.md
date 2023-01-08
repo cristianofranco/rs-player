@@ -1,4 +1,4 @@
-# RocketSeat Player
+# Rocketseat Player
 https://rs-player.vercel.app
 
 ## Desafio #1: Player de música
