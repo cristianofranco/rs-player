@@ -9,6 +9,9 @@ import {
 
 export default function Player({ size, song }: PlayerProps) {
   const playerRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [percentagePlayed, setPercentagePlayed] = useState(0);
 
   function handleSizes() {
     switch (size) {
@@ -21,13 +24,29 @@ export default function Player({ size, song }: PlayerProps) {
     }
   }
 
-  function play(event: React.MouseEvent<HTMLDivElement>) {
-    playerRef.current?.play();
+  const play = () => playerRef.current?.play();
+  const pause = () => playerRef.current?.pause();
+
+  function adjustVolume() {
+    if (playerRef.current) {
+      playerRef.current.volume = 0.2;
+    }
   }
 
-  function pause(event: React.MouseEvent<HTMLDivElement>) {
-    playerRef.current?.pause();
+  function handleTimeUpdate() {
+    if (playerRef.current) setCurrentTime(playerRef.current.currentTime);
+    setPercentagePlayed((currentTime / song?.duration) * 100);
   }
+
+  function formatSongDuration() {
+    const minutes = Math.floor(song?.duration / 60);
+    const seconds = song?.duration % 60;
+    return `${minutes}:${seconds}`;
+  }
+
+  useEffect(() => {
+    adjustVolume();
+  }, [])
 
   return (
     <Stack
@@ -62,8 +81,16 @@ export default function Player({ size, song }: PlayerProps) {
         <Box marginRight="50px" _hover={{ color: "whiteAlpha.700" }}>
           <IoIosRewind size="40px" color="inherit" />
         </Box>
-        <Box marginRight="50px" _hover={{ color: "whiteAlpha.700" }}>
-          <IoIosPlay size="40px" color="inherit" />
+        <Box
+          marginRight="50px"
+          _hover={{ color: "whiteAlpha.700" }}
+          onClick={() => (isPlaying ? pause() : play())}
+        >
+          {isPlaying ? (
+            <IoIosPause size="40px" color="inherit" />
+          ) : (
+            <IoIosPlay size="40px" color="inherit" />
+          )}
         </Box>
         <Box _hover={{ color: "whiteAlpha.700" }}>
           <IoIosFastforward size="40px" color="inherit" />
@@ -74,18 +101,24 @@ export default function Player({ size, song }: PlayerProps) {
           <Progress
             size="sm"
             borderRadius="full"
-            value={80}
+            value={percentagePlayed}
             height="6px"
             colorScheme="blackAlpha"
             marginBottom="13px"
           />
-          <audio ref={playerRef} src={song?.audio} />
+          <audio
+            ref={playerRef}
+            src={song?.audio}
+            onTimeUpdate={handleTimeUpdate}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+          />
           <Flex justifyContent="space-between">
             <Text fontSize="sm" color="gray.400">
-              2:06
+              0:00
             </Text>
             <Text fontSize="sm" color="gray.400">
-              2:38
+              {formatSongDuration()}
             </Text>
           </Flex>
         </Flex>

@@ -7,19 +7,22 @@ export default function Home() {
       name: "????",
       artist: "EDEN",
       coverUrl: "/images/no-future.jpg",
-      audio: "songs/question.mp3"
+      audio: "songs/question.mp3",
+      duration: 179
     },
     second: {
       name: "Modern Warfare",
       artist: "EDEN",
       coverUrl: "/images/icymi.jpg",
-      audio: "songs/modern.mp3"
+      audio: "songs/modern.mp3",
+      duration: 202
     },
     third: {
       name: "Untitled",
       artist: "EDEN",
       coverUrl: "/images/no-future.jpg",
-      audio: "songs/untitled.mp3"
+      audio: "songs/untitled.mp3",
+      duration: 216,
     },
   };
 
