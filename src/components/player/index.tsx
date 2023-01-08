@@ -32,6 +32,16 @@ export default function Player({ size, song }: PlayerProps) {
     playerRef.current?.pause();
   }
 
+  function rewind() {
+    if (playerRef.current)
+    playerRef.current.currentTime = (currentTime - 10)
+  }
+
+  function skip() {
+    if (playerRef.current)
+    playerRef.current.currentTime = (currentTime + 10)
+  }
+
   function adjustVolume() {
     if (playerRef.current) {
       playerRef.current.volume = 0.75;
@@ -83,7 +93,7 @@ export default function Player({ size, song }: PlayerProps) {
         </Flex>
       </Flex>
       <Flex alignSelf="center" color="whiteAlpha.900">
-        <Box marginRight="50px" _hover={{ color: "whiteAlpha.700" }}>
+        <Box marginRight="50px" _hover={{ color: "whiteAlpha.700" }} onClick={() => rewind()}>
           <IoIosRewind size="40px" color="inherit" />
         </Box>
         <Box
@@ -97,7 +107,7 @@ export default function Player({ size, song }: PlayerProps) {
             <IoIosPlay size="40px" color="inherit" />
           )}
         </Box>
-        <Box _hover={{ color: "whiteAlpha.700" }}>
+        <Box _hover={{ color: "whiteAlpha.700" }} onClick={() => skip()}>
           <IoIosFastforward size="40px" color="inherit" />
         </Box>
       </Flex>
