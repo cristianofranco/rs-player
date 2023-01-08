@@ -33,13 +33,11 @@ export default function Player({ size, song }: PlayerProps) {
   }
 
   function rewind() {
-    if (playerRef.current)
-    playerRef.current.currentTime = (currentTime - 10)
+    if (playerRef.current) playerRef.current.currentTime = currentTime - 10;
   }
 
   function skip() {
-    if (playerRef.current)
-    playerRef.current.currentTime = (currentTime + 10)
+    if (playerRef.current) playerRef.current.currentTime = currentTime + 10;
   }
 
   function adjustVolume() {
@@ -53,10 +51,10 @@ export default function Player({ size, song }: PlayerProps) {
     setPercentagePlayed((currentTime / song?.duration) * 100);
   }
 
-  function formatSongDuration() {
-    const minutes = Math.floor(song?.duration / 60);
-    const seconds = song?.duration % 60;
-    return `${minutes}:${seconds}`;
+  function formatDuration(seconds: number) {
+    const minutes = Math.floor(seconds / 60);
+    const _seconds = Math.floor(seconds % 60);
+    return `${minutes}:${_seconds < 10 ? `0${_seconds}` : _seconds}`;
   }
 
   useEffect(() => {
@@ -93,7 +91,11 @@ export default function Player({ size, song }: PlayerProps) {
         </Flex>
       </Flex>
       <Flex alignSelf="center" color="whiteAlpha.900">
-        <Box marginRight="50px" _hover={{ color: "whiteAlpha.700" }} onClick={() => rewind()}>
+        <Box
+          marginRight="50px"
+          _hover={{ color: "whiteAlpha.700" }}
+          onClick={() => rewind()}
+        >
           <IoIosRewind size="40px" color="inherit" />
         </Box>
         <Box
@@ -123,10 +125,10 @@ export default function Player({ size, song }: PlayerProps) {
           />
           <Flex justifyContent="space-between">
             <Text fontSize="sm" color="gray.400">
-              0:00
+              {formatDuration(currentTime)}
             </Text>
             <Text fontSize="sm" color="gray.400">
-              {formatSongDuration()}
+              {formatDuration(song?.duration)}
             </Text>
           </Flex>
         </Flex>
