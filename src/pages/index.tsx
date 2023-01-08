@@ -9,7 +9,7 @@ export default function Home() {
       artist: "EDEN",
       coverUrl: "/images/no-future.jpg",
       audio: "songs/question.mp3",
-      duration: 179
+      duration: 179,
     },
     {
       id: 2,
