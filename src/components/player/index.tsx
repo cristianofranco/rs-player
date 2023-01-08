@@ -24,8 +24,13 @@ export default function Player({ size, song }: PlayerProps) {
     }
   }
 
-  const play = () => playerRef.current?.play();
-  const pause = () => playerRef.current?.pause();
+  function play() {
+    playerRef.current?.play();
+  }
+
+  function pause() {
+    playerRef.current?.pause();
+  }
 
   function adjustVolume() {
     if (playerRef.current) {
@@ -46,7 +51,7 @@ export default function Player({ size, song }: PlayerProps) {
 
   useEffect(() => {
     adjustVolume();
-  }, [])
+  }, []);
 
   return (
     <Stack
@@ -106,13 +111,6 @@ export default function Player({ size, song }: PlayerProps) {
             colorScheme="blackAlpha"
             marginBottom="13px"
           />
-          <audio
-            ref={playerRef}
-            src={song?.audio}
-            onTimeUpdate={handleTimeUpdate}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-          />
           <Flex justifyContent="space-between">
             <Text fontSize="sm" color="gray.400">
               0:00
@@ -123,6 +121,13 @@ export default function Player({ size, song }: PlayerProps) {
           </Flex>
         </Flex>
       )}
+      <audio
+        ref={playerRef}
+        src={song?.audio}
+        onTimeUpdate={handleTimeUpdate}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      />
     </Stack>
   );
 }
