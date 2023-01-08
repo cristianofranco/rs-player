@@ -1,8 +1,9 @@
-# RocketSeat Player
+# Rocketseat Player
+https://rs-player.vercel.app
 
 ## Desafio #1: Player de música
 
-Este aplicativo é uma página com três players de música de tamanhos diferentes, cada um toca uma música diferente. O aplicativo foi desenvolvido com React, TypeScript e a biblioteca de interface Chakra-UI.
+Este aplicativo é uma página com três players de música de tamanhos diferentes, cada qual toca um movimento diferente da música Moonlight Sonata. O aplicativo foi desenvolvido com React, TypeScript e a biblioteca de interface Chakra-UI.
 
 ## Uso
 
